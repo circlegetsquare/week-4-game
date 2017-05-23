@@ -25,27 +25,40 @@ var game = {
 		resetGame: function() {
 			game.randomTargetScore();
 			game.randomCrystalValues();
+			game.userScore = 0;
+			$("#user-score").html(game.userScore);
 		},
 
 		addCrystalValues: function() {
 			$(".crystal").on("click", function() {
 				game.userScore = game.userScore + parseInt($(this).val());
-				console.log(game.targetScore);
 				$('#user-score').html(game.userScore);
+				game.scoreTracker();
             });
 		},
 
 		scoreTracker: function() {
-			if (userScore === targetScore) {
-
+			if (game.userScore === game.targetScore) {
+				game.youWin();
 			}
-
-			else if ( userScore > targetScore) {
-
+			else if ( game.userScore > game.targetScore) {
+				game.youLose();
 			}
 		},
 
+		youWin: function() {
+			game.resetGame();
+			game.numWins ++;
+			$('#wins').html(game.numWins);	
+			$('#message').html("WINNER!");
+		},
 
+		youLose: function() {
+			game.resetGame();
+			game.numLosses ++;
+			$('#losses').html(game.numLosses);
+			$('#message').html("LOSER!");
+		},
 
 
 	};

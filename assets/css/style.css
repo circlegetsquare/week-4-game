@@ -8,32 +8,108 @@
 body {
 	font-family: 'Cutive Mono', monospace; 'Helvetica Neue', 'Arial', Helvetica, sans-serif;
 	color: #303030;
-	font-size: 16px;
+	font-size: 18px;
+	background-color: #f0f0f0;
+}
+
+p {
+	margin-bottom: 16px;
+}
+
+.bckgrnd{
+
+	background-image: url(../images/crystal-1.svg), url(../images/crystal-2.svg), url(../images/crystal-3.svg), url(../images/crystal-4.svg);
+	background-repeat: no-repeat;
+	background-position: top 100px left 25px, top 50px left 50px, top 100px right 25px, top 50px right 50px;
+	opacity: .2;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	overflow: all;
+
 }
 
 h1 {
-	font-size: 32px;
+	font-size: 56px;
+	font-family: 'Audiowide', serif;
 	margin: 0px auto;
-	\\margin-bottom: 20px;
-
+	text-align: center;
+	text-transform: uppercase;
+	color: #CCFFFF;
+	line-height: 32px;
 }
+
 .container {
 	border: 1px solid;
-	padding: 10px;
+	padding: 25px;
 	margin: 0px auto;
-	margin-bottom: 20px;
 	width: 800px;
 	overflow: auto;
+	background-color: #ffffff;
 }
 
-.crystal {
-	height: 50px;
-	width: 100px;
-	border: 1px solid;
+.header {
+	background-color: #303030;
+}
+
+.col-2 {
+	width: 50%;
+	position: relative;
+	margin: 0px;
+	border: none;
+	padding: 3px 0px;
+}
+
+.scoreboard {
+	width: 425px;
+}
+
+.no-brdr-btm {
+	border-bottom: 0px;
+}
+
+.no-brdr-top {
+	border-top: 0px;
+}
+
+.margin-btm {
+	margin-bottom: 20px;
+}
+
+.align-rt {
+	text-align: right;
+}
+
+.announce {
+	font-size: 36px;
+	font-family: 'Nosifer', monospace;
+	color: red;
+}
+
+.crystal-div {
+	height: 150px;
+	width: 150px;
 	line-height: 50px;
 	text-align: center;
-	margin: 0px 20px;
+	margin: 0px 25px 0px 0px;
 	position: relative;
+}
+
+.crystal-img {
+	opacity: 0;
+	cursor: pointer;
+}
+
+.dashed {
+	border: 1px dashed;
+	background-color: #ffffff;
+	clear: both;
+}
+
+.center {
+	margin: 0 auto;
+	width: 700px;
+	overflow: hidden;
 }
 
 .fl-l {

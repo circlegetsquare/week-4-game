@@ -1,4 +1,3 @@
-//$(document).ready(function(){
 
 var game = {
 		crystalValueArray: [],
@@ -7,7 +6,7 @@ var game = {
 		numWins: 0,
 		numLosses: 0,
 
-
+		// crystals fade in on page load
 		openAnimation: function() {
 			$("#crystal-1").ready(function() {
         		$("#crystal-1").animate({opacity: "0"}, 400).animate({opacity: "1"}, 1200);
@@ -24,64 +23,71 @@ var game = {
       		});
 		},
 
+		// creates random target score
 		randomTargetScore: function() {
-			game.targetScore = Math.floor(Math.random() * 102) + 19;
-			$("#target-score").html(game.targetScore);
+			this.targetScore = Math.floor(Math.random() * 102) + 19;
+			$("#target-score").html(this.targetScore);
 		},
 
+		// creates values for the four crystals
 		randomCrystalValues: function() {
 			for (var i = 0; i < 4; i++) {
-				game.crystalValueArray[i] = Math.floor(Math.random() * 12) +1;
-				console.log(game.crystalValueArray[i]);
-				$("#crystal-" + (i+1)).val(game.crystalValueArray[i]);
-				$("#crystal-" + (i+1)).html(game.crystalValueArray[i]);
+				this.crystalValueArray[i] = Math.floor(Math.random() * 12) +1;
+				$("#crystal-" + (i+1)).val(this.crystalValueArray[i]);
+				$("#crystal-" + (i+1)).html(this.crystalValueArray[i]);
 			}
 		},
 		
+		// resets game
 		resetGame: function() {
-			game.randomTargetScore();
-			game.randomCrystalValues();
-			game.userScore = 0;
-			$("#user-score").html(game.userScore);
+			this.randomTargetScore();
+			this.randomCrystalValues();
+			this.userScore = 0;
+			$("#user-score").html(this.userScore);
 		},
 
+		// takes value from clicked crytal and adds to user score
 		addCrystalValues: function() {
 			$(".crystal-img").on("click", function() {
 				game.userScore = game.userScore + parseInt($(this).val());
 				$("#user-score").html(game.userScore);
 				game.scoreTracker();
             });
+
 		},
 
+		// checks to see if the current core means win, lose or play on
 		scoreTracker: function() {
-			if (game.userScore === game.targetScore) {
-				game.youWin();
+			if (this.userScore === this.targetScore) {
+				this.youWin();
 			}
-			else if ( game.userScore > game.targetScore) {
-				game.youLose();
+			else if (this.userScore > this.targetScore) {
+				this.youLose();
 			}
 		},
 
+		// one a game win, resets game, adds 1 to win count, and displays win message
 		youWin: function() {
-			game.resetGame();
-			game.numWins ++;
-			$('#wins').html(game.numWins);	
+			this.resetGame();
+			this.numWins ++;
+			$('#wins').html(this.numWins);	
 			$('#message').html("WINNER!");
 		},
 
+		// one a game lose, resets game, adds 1 to loss count, and displays loss message
 		youLose: function() {
-			game.resetGame();
-			game.numLosses ++;
-			$('#losses').html(game.numLosses);
+			this.resetGame();
+			this.numLosses ++;
+			$('#losses').html(this.numLosses);
 			$('#message').html("LOSER!");
 		},
 
+		// when a crystal is clicked, animation and adds crystal value
 		onClickCrystal: function() {
 			$(".crystal-img").on("click", function() {
         		$(this).animate({ height: "145px", width: "145px"}, 50).animate({ height: "155px", width: "155px"}, 50).animate({ height: "150px", width: "150px"}, 50);
-        		console.log("crystal click!");
       		});
-      		game.addCrystalValues();
+      		this.addCrystalValues();
 		},
 
 
@@ -91,6 +97,3 @@ game.openAnimation();
 game.resetGame();
 game.onClickCrystal();
 
-//$(this).animate ({opacity: "1"}).animate({ height: "160px", width: "160px"}).animate({ height: "150px", width: "150px"}).animate ({opacity: ".5"});
-
-//})

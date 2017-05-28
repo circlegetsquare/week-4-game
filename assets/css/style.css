@@ -16,18 +16,6 @@ p {
 	margin-bottom: 16px;
 }
 
-.bckgrnd{
-
-	background-image: url(../images/crystal-1.svg), url(../images/crystal-2.svg), url(../images/crystal-3.svg), url(../images/crystal-4.svg);
-	background-repeat: no-repeat;
-	background-position: top 100px left 25px, top 50px left 50px, top 100px right 25px, top 50px right 50px;
-	opacity: .2;
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	overflow: all;
-
-}
 
 h1 {
 	font-size: 56px;

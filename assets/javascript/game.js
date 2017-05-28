@@ -6,21 +6,16 @@ var game = {
 		numWins: 0,
 		numLosses: 0,
 
-		// crystals fade in on page load
+		// crystals fade in from left to right
 		openAnimation: function() {
-			$("#crystal-1").ready(function() {
-        		$("#crystal-1").animate({opacity: "0"}, 400).animate({opacity: "1"}, 1200);
-      		});
-			$("#crystal-2").ready(function() {
-        		$("#crystal-2").animate({opacity: "0"}, 500).animate({opacity: "1"}, 1000);
-      		});
-			$("#crystal-3").ready(function() {
-        		$("#crystal-3").animate({opacity: "0"}, 600).animate({opacity: "1"}, 1000);
-      		});
-			$("#crystal-4").ready(function() {
-        		$("#crystal-4").animate({opacity: "0"}, 640).animate({opacity: "1"}, 1000);
+			$("#crystal-1").animate({opacity: "0"}, 400).animate({opacity: "1"}, 1200);
+			$("#crystal-2").animate({opacity: "0"}, 500).animate({opacity: "1"}, 1000);
+			$("#crystal-3").animate({opacity: "0"}, 600).animate({opacity: "1"}, 1000);
+			$("#crystal-4").animate({opacity: "0"}, 640).animate({opacity: "1"}, 1000);
+		},
 
-      		});
+		resetAnimation: function() {
+			$(".crystal-img").animate({opacity: "0"}, 200).animate({opacity: "1"}, 300);
 		},
 
 		// creates random target score
@@ -38,12 +33,13 @@ var game = {
 			}
 		},
 		
-		// resets game
+		// resets game (reset animation not quite working yet as desired)
 		resetGame: function() {
 			this.randomTargetScore();
 			this.randomCrystalValues();
 			this.userScore = 0;
 			$("#user-score").html(this.userScore);
+			//this.resetAnimation();
 		},
 
 		// takes value from clicked crytal and adds to user score
